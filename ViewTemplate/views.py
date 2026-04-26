@@ -10,8 +10,18 @@ class Person:
         self.surname = surname
         self.age = age
 
+
     def __str__(self):
         return f"Name: {self.name}, Surname: {self.surname} is {self.age} years old"
+
+class Product:
+    def __init__(self, name, price, description):
+        self.name = name
+        self.price = price
+        self.description = description
+
+    def __str__(self):
+        return f"Name: {self.name}, Price: {self.price}. {self.description}"
 
 def index(request):
     context = {}
@@ -27,7 +37,26 @@ def index(request):
     context["random_value"] = random.randint(-100, 100)
     context["empty_list"] = []
 
-    return render(request, "index.html", context = context)
+    return render(request, "./first_example/index.html", context = context)
 
 def text_format(request):
-    return render(request, "text-format.html", {"list" : [i for i in range(0, 10)]})
+    return render(request, "./first_example/text-format.html", {"list" : [i for i in range(0, 10)]})
+
+def contacts(request):
+    persons = [
+        Person("Alex", 30, "Smith"),
+        Person("John", 25, "Doe"),
+        Person("Jane", 28, "Doe")
+    ]
+    return render(request, "second_example/contacts.html", {"persons": persons})
+
+def products(request):
+    products = [
+        Product("Tomato", 100, "The freshest tomato in the world"),
+        Product("Banana", 2, "Just banana"),
+        Product("PC", 1000, "OHHHH MY PC")
+    ]
+    return render(request, "products.html", {"products": products})
+
+def style(request):
+    return render(request, "second_example/main_page.css")

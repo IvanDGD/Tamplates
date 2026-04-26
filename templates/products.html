@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block contacts %}
+<h1>Products</h1>
+
+{% for p in products %}
+    {% include "productDetail.html" with name=p.name price=p.price description=p.description only%}
+{% endfor %}
+{% endblock contacts %}
