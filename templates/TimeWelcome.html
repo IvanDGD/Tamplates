@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Hello</title>
+</head>
+<body>
+    {% now "d.m.Y H:i" as time %}
+    {% now "H" as hour %}
+
+    <p>{{ time }}</p>
+
+    {% if hour >= "12" and hour <= "18" %}
+        <p>Добрий день!</p>
+    {% elif hour >= "05" and hour < "12" %}
+        <p>Добрий ранок!</p>
+    {% else %}
+        <p>Добрий вечір!</p>
+    {% endif %}
+</body>
+</html>
