@@ -15,10 +15,11 @@ class Person:
         return f"Name: {self.name}, Surname: {self.surname} is {self.age} years old"
 
 class Product:
-    def __init__(self, name, price, description):
+    def __init__(self, name, price, description, image_url):
         self.name = name
         self.price = price
         self.description = description
+        self.image_url = image_url
 
     def __str__(self):
         return f"Name: {self.name}, Price: {self.price}. {self.description}"
@@ -52,9 +53,16 @@ def contacts(request):
 
 def products(request):
     products = [
-        Product("Tomato", 100, "The freshest tomato in the world"),
-        Product("Banana", 2, "Just banana"),
-        Product("PC", 1000, "OHHHH MY PC")
+        Product("Tomato", 100, "The freshest tomato in the world", "tomato.jfif"),
+        Product("Banana", 2, "Sweet and organic yellow bananas", "banana.jpg"),
+        Product("Gaming PC", 1500, "High-end PC for ultra graphics and smooth gameplay", "pc.webp"),
+        Product("Laptop Pro", 1200, "Lightweight and powerful laptop for professionals", "laptop.avif"),
+        Product("Smartphone X", 800, "The latest smartphone with a stunning camera", "smartphone.webp"),
+        Product("Coffee Beans", 25, "Arabica beans with a rich aroma and dark roast", "coffee.jpg"),
+        Product("Wireless Headphones", 150, "Noise-cancelling headphones with deep bass", "headphones.webp"),
+        Product("Gaming Chair", 250, "Ergonomic chair for long gaming sessions", "gamingchair.webp"),
+        Product("Mechanical Keyboard", 120, "RGB keyboard with tactile blue switches", "keyboard.avif"),
+        Product("Smart Watch", 300, "Track your fitness and receive notifications on the go", "watch.webp")
     ]
     return render(request, "products.html", {"products": products})
 

@@ -121,5 +121,5 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "config/wwwroot"
+    BASE_DIR / "config" / "wwwroot" / "assets",
 ]
